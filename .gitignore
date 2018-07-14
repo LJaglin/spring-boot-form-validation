@@ -2,6 +2,12 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
+## Java
+*.class
+*.ear
+*.war
+hs_err_pid*
+
 ### STS ###
 .apt_generated
 .classpath
