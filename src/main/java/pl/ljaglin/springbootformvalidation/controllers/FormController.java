@@ -1,21 +1,28 @@
 package pl.ljaglin.springbootformvalidation.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PostMapping;
+import pl.ljaglin.springbootformvalidation.models.Person;
+
+import javax.validation.Valid;
 
 @Controller
 public class FormController {
 
-    @RequestMapping(value="")
-    @ResponseBody
-    public String sayHello() {
-        return "Hello!";
+    @GetMapping("/")
+    public String showForm(Person person) {
+        return "form";
     }
 
-    @GetMapping("form")
-    public String showForm() {
-        return "form";
+    @PostMapping("/")
+    public String checkPersonInfo(@Valid Person person, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "form";
+        }
+
+        return "redirect:/result";
     }
 }
