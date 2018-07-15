@@ -1,9 +1,21 @@
 package pl.ljaglin.springbootformvalidation.models;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Person {
 
+    @NotNull
+    @Size(min=2, max=30)
     private String firstName;
+
+    @NotNull
+    @Size(min=2, max=30)
     private String lastName;
+
+    @NotNull
+    @Min(18)
     private int age;
 
     public Person(String firstName, String lastName, int age) {
