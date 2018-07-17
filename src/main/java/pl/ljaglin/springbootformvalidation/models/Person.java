@@ -18,12 +18,6 @@ public class Person {
     @Min(18)
     private int age;
 
-    public Person(String firstName, String lastName, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
